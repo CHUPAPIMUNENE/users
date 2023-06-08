@@ -5,7 +5,6 @@ async function getUserDetails() {
   console.log("userID: ", userID);
 
   const response = await fetch(GET_USER_DETAILS(userID));
-
   const user = await response.json();
 
   createUser(user);
@@ -16,7 +15,6 @@ getUserDetails();
 let row = document.getElementById("row");
 
 function createUser(user) {
-  //! Base card
   let baseCard = document.createElement("div");
   row.appendChild(baseCard);
   baseCard.style.background = "#ef473a";
@@ -27,10 +25,10 @@ function createUser(user) {
   let baseCardTheme = document.createElement("h1");
   baseCardTheme.textContent = "Base Info";
   baseCard.appendChild(baseCardTheme);
+  baseCard.appendChild(baseCardTheme);
 
-  let fullName = document.createElement("h1");
-  fullName.style.fontWeight = "900";
-  fullName.textContent = user.firstName;
+  const fullName = document.createElement("h1");
+  fullName.innerHTML = `${user.firstName} ${user.lastName}`;
   baseCard.appendChild(fullName);
 
   let age = document.createElement("h3");
@@ -139,8 +137,82 @@ function createUser(user) {
   addressCard.appendChild(addressCardTheme);
 
   let address = document.createElement("h3");
-  address.textContent = `Address: ${user.address.address}, City: ${user.address.city}, Coordinates: ${user.address.coordinates}`;
+  address.textContent = `Address: ${user.address.address}, City: ${user.address.city}, Coordinates: ${user.address.coordinates.lng},${user.address.coordinates.lat}`;
   addressCard.appendChild(address);
+
+  //!Work Card
+  let workCard = document.createElement("div");
+  workCard.style.background = "#649173";
+  workCard.style.color = "white";
+  workCard.style.fontWeight = "600";
+  workCard.style.padding = "20px";
+  row.appendChild(workCard);
+
+  let workCardTheme = document.createElement("h1");
+  workCardTheme.textContent = "Addresses and Coordinates";
+  workCard.appendChild(workCardTheme);
+
+  let company = document.createElement("h2");
+  workCard.appendChild(company);
+  company.textContent = "Company";
+
+  let companyName = document.createElement("h3");
+  companyName.textContent = `Name of the Company:  ${user.company.name}`;
+  workCard.appendChild(companyName);
+
+  let companyAddress = document.createElement("h3");
+  companyAddress.textContent = `COMPANIES ADDRESS:  ${user.company.address.address} COMPANIES CITY:  ${user.company.address.city}    COMPANIES COORDINATES:  ${user.company.address.coordinates.lat}  ,  ${user.company.address.coordinates.lng}`;
+  workCard.appendChild(companyAddress);
+
+  let companyPostalCode = document.createElement("h3");
+  companyPostalCode.textContent = `POSTAL  CODE:  ${user.company.address.postalCode}  STATE: ${user.company.address.state}`;
+  workCard.appendChild(companyPostalCode);
+
+  let companyDepartment = document.createElement("h3");
+  companyDepartment.textContent = `DEPARTMENT:  ${user.company.department},  TITLE:   ${user.company.title}`;
+  workCard.appendChild(companyDepartment);
+
+  let universityH1 = document.createElement("h2");
+  universityH1.textContent = "University";
+  workCard.appendChild(universityH1);
+
+  let university = document.createElement("h3");
+  university.textContent = `UNIVERSITY:  ${user.university}`;
+  workCard.appendChild(university);
+
+  //!Bank Info Card
+  let bankCard = document.createElement("div");
+  bankCard.style.background = "#d53369";
+  bankCard.style.color = "white";
+  bankCard.style.fontWeight = "600";
+  bankCard.style.padding = "20px";
+  row.appendChild(bankCard);
+
+  let bankCardTheme = document.createElement("h1");
+  bankCardTheme.textContent = "Bank Information";
+  bankCard.appendChild(bankCardTheme);
+
+  let bankcardExpire = document.createElement("h3");
+  bankcardExpire.textContent = `bank card Expire:  ${user.bank.cardExpire}`;
+  bankCard.appendChild(bankcardExpire);
+
+  let bankCardNumber = document.createElement("h3");
+  bankCardNumber.textContent = `Card Number:  ${user.bank.cardNumber}`;
+  bankCard.appendChild(bankCardNumber);
+
+  let bankCardType = document.createElement("h3");
+  bankCardType.textContent = `bank type:  ${user.bank.cardType}`;
+  bankCard.appendChild(bankCardType);
+
+  let bankcardiban = document.createElement("h3");
+  bankcardiban.textContent = `bank card iban:  ${user.bank.iban}`;
+  bankCard.appendChild(bankcardiban);
+
+  let bankCardCurrency = document.createElement("h3");
+  bankCardCurrency.textContent = `bank card currency:  ${user.bank.currency}`;
+  bankCard.appendChild(bankCardCurrency);
 }
 
 createUser();
+
+let link = document.getElementsByTagName("a");

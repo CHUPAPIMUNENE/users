@@ -37,8 +37,7 @@ function card(user) {
   h1.style.color = "white";
   let h2 = document.createElement("h2");
   h2.innerHTML = user.email;
-  h2.style.color = "white";
-  h2.style.textShadow = "2px 2px 2px grey";
+  h2.style.color = "#0ABFBC";
   div.appendChild(h1);
   div.appendChild(h2);
   wrapper.appendChild(div);
@@ -63,6 +62,6 @@ function card(user) {
 
   function click(id) {
     window.location.href = "index1.html";
-    localStorage.setItem("userID", API1(id));
+    localStorage.setItem("userID", id);
   }
 }
