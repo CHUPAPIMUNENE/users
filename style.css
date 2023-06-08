@@ -1,0 +1,36 @@
+.header img {
+  width: 50px;
+  margin-left: 30px;
+}
+
+.header span {
+  font-family: cursive;
+  color: black;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  background-color: white;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+body {
+  background: url(https://img.freepik.com/free-photo/neutral-abstract-texture-minimal-background_53876-98402.jpg?w=740&t=st=1686064500~exp=1686065100~hmac=ec918d891963c72ab24944ed9fef6745989fc07d68488f70ec41f65299e186b5)
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.starting {
+  backdrop-filter: blur(5px);
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
